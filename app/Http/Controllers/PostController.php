@@ -17,8 +17,13 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
+        $totalPost = $posts->count();
     
-       return json_decode($posts);
+       return [
+           'posts' => json_decode($posts),
+           'totalPosts'=> $totalPost
+       ] ;
+       
     }
 
     /**
